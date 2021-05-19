@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6709816064625671509}
   - component: {fileID: 2649188084806617326}
   - component: {fileID: 95641640904708296}
+  - component: {fileID: 862104030}
   m_Layer: 0
   m_Name: Paddle
   m_TagString: Untagged
@@ -130,10 +131,22 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.72999996, y: 0.32}
-      - {x: -0.72999996, y: 0.32}
-      - {x: -1.28, y: 0.08}
+    - - {x: 0.66160053, y: 0.32124358}
+      - {x: -0.66343445, y: 0.32195777}
+      - {x: -1.2760847, y: 0.05650647}
       - {x: -1.28, y: -0.32}
       - {x: 1.28, y: -0.32}
-      - {x: 1.28, y: 0.089999996}
-      - {x: 1.0699999, y: 0.17999999}
+      - {x: 1.28, y: 0.04735013}
+      - {x: 1.0364211, y: 0.15885822}
+--- !u!114 &862104030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6709816064625671498}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02db2791e7cf8ff4da4a331e0e91b15a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
