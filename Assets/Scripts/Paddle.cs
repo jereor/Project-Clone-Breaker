@@ -5,7 +5,7 @@ public class Paddle : MonoBehaviour
 {
     [SerializeField] float minX = 1.5f;
     [SerializeField] float maxX = 20f;
-    [SerializeField] float xPush = 2f;
+    [SerializeField] float xPush = 0f;
     [SerializeField] float yPush = 15f;
 
     [SerializeField] GameObject ball;

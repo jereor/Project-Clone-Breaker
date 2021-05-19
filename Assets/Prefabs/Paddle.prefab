@@ -152,7 +152,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minX: 1.5
   maxX: 20
-  xPush: 2
+  xPush: 0
   yPush: 15
   ball: {fileID: 0}
   isNotTouching: 0
