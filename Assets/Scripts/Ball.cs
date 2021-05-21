@@ -42,7 +42,7 @@ public class Ball : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (!ballLocked)
+        if (!ballLocked && collision.gameObject.tag != "Destroyable")
         {
             AudioClip clip = ballSounds[UnityEngine.Random.Range(0, ballSounds.Length)];
             aSource.PlayOneShot(clip);
