@@ -44,4 +44,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentScore: 0
-  pointsPerBlockDestroyed: 0
+  pointsPerBlockDestroyed: 100
+  scoreDisplay: {fileID: 0}
