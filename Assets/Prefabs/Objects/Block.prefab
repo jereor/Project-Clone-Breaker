@@ -145,3 +145,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destroyClip: {fileID: 8300000, guid: c330b8a7e91dc594cb7f9493aa102770, type: 3}
+  blockSparklesVFX: {fileID: 3769542422384921469, guid: 68aa3e87460dade4cbd7c09c6ce6a321,
+    type: 3}
