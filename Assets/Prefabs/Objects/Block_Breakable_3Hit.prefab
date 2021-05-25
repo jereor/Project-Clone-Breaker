@@ -14,8 +14,8 @@ GameObject:
   - component: {fileID: 333538730390599529}
   - component: {fileID: 220813592067261173}
   m_Layer: 0
-  m_Name: Block_Unbreakable
-  m_TagString: Unbreakable
+  m_Name: Block_Breakable_3Hit
+  m_TagString: Breakable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 551544ea5188da847a9cd9c4c5168961, type: 3}
-  m_Color: {r: 0.59420156, g: 0, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -144,6 +144,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d07ff7a90dc9ef4a83e4309eda3ecf0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitClip: {fileID: 8300000, guid: 0ef31eb8361ca3344a49e3254ced9168, type: 3}
   destroyClip: {fileID: 8300000, guid: c330b8a7e91dc594cb7f9493aa102770, type: 3}
   blockSparklesVFX: {fileID: 3769542422384921469, guid: 68aa3e87460dade4cbd7c09c6ce6a321,
     type: 3}
+  maxHits: 3
+  hitSprites:
+  - {fileID: 21300000, guid: 551544ea5188da847a9cd9c4c5168961, type: 3}
+  - {fileID: 21300000, guid: 1ec72d440af188f4fa319e803c46fd59, type: 3}
+  - {fileID: 21300000, guid: ff4d1a9a565334e41a1f72f8725bae77, type: 3}
+  spriteRenderer: {fileID: 0}
+  timesHit: 0
