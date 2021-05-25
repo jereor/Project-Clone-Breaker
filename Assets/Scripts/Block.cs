@@ -5,27 +5,37 @@ using UnityEngine;
 [RequireComponent(typeof(AudioSource))]
 public class Block : MonoBehaviour
 {
+    // Config parameters
     [SerializeField] AudioClip destroyClip;
     [SerializeField] GameObject blockSparklesVFX;
+    [SerializeField] int maxHits;
 
+    // Cached references
     LevelManager levelManager;
     GameStatus gameStatus;
 
+    // State variables
+    [SerializeField] int timesHit;
+
     private void Start()
     {
+        gameStatus = FindObjectOfType<GameStatus>();
+        levelManager = FindObjectOfType<LevelManager>();
         CountToBlocks();
     }
 
     private void CountToBlocks()
     {
-        gameStatus = FindObjectOfType<GameStatus>();
-        levelManager = FindObjectOfType<LevelManager>();
         if (tag == "Breakable") levelManager.BlockAdded();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (tag == "Breakable") DestroyBlock();
+        if (tag == "Breakable")
+        {
+            if (timesHit++ >= maxHits)
+                DestroyBlock();
+        }
     }
 
     private void DestroyBlock()
