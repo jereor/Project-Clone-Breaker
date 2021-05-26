@@ -1,28 +1,27 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Ball : MonoBehaviour
 {
+    // Configuration parameters
     [SerializeField] GameObject paddle;
     [SerializeField] AudioClip[] ballSounds;
+    [SerializeField] float randomFactor = 0.1f;
     
+    // State variables
     Vector2 paddleToBallVector;
     public bool ballLocked = true;
 
+    // Cached component references
+    AudioSource audioSource;
     AudioSource hitSound;
     AudioSource cloneSound;
-
-    AudioSource aSource;
+    Rigidbody2D rb;
 
     // Start is called before the first frame update
     void Start()
     {
         paddleToBallVector = transform.position - paddle.transform.position;
-        aSource = GetComponent<AudioSource>();
-        hitSound = transform.GetChild(0).GetComponent<AudioSource>();
-        cloneSound = transform.GetChild(1).GetComponent<AudioSource>();
+        InitializeCachedReferences();
     }
 
     // Update is called once per frame
@@ -34,6 +33,14 @@ public class Ball : MonoBehaviour
         }
     }
 
+    private void InitializeCachedReferences()
+    {
+        audioSource = GetComponent<AudioSource>();
+        hitSound = transform.GetChild(0).GetComponent<AudioSource>();
+        cloneSound = transform.GetChild(1).GetComponent<AudioSource>();
+        rb = GetComponent<Rigidbody2D>();
+    }
+
     private void LockBallToPaddle()
     {
         Vector2 paddlePos = new Vector2(paddle.transform.position.x, paddle.transform.position.y);
@@ -42,10 +49,15 @@ public class Ball : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        float x = Random.Range(0f, randomFactor);
+        float y = Random.Range(0f, randomFactor);
+        Vector2 velocityTweak = new Vector2(x, y);
+
         if (!ballLocked && collision.gameObject.tag != "Breakable")
         {
-            AudioClip clip = ballSounds[UnityEngine.Random.Range(0, ballSounds.Length)];
-            aSource.PlayOneShot(clip);
+            AudioClip clip = ballSounds[Random.Range(0, ballSounds.Length)];
+            audioSource.PlayOneShot(clip);
+            rb.velocity += velocityTweak;
         }
     }
 }
