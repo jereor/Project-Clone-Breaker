@@ -3,8 +3,8 @@ using UnityEngine;
 
 public class Paddle : MonoBehaviour
 {
-    [SerializeField] float minX = 1.5f;
-    [SerializeField] float maxX = 20f;
+    [SerializeField] float minX = 0.9f;
+    [SerializeField] float maxX = 5.9f;
     [SerializeField] float xPush = 0f;
     [SerializeField] float yPush = 15f;
 
