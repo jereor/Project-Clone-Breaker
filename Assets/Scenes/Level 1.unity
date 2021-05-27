@@ -323,11 +323,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 5412243214161053038, guid: b471d53cf31544a48847809a143e0213,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 5.5
-      objectReference: {fileID: 0}
     - target: {fileID: 5412243214481782500, guid: b471d53cf31544a48847809a143e0213,
         type: 3}
       propertyPath: m_RootOrder
@@ -387,16 +382,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Game Level
-      objectReference: {fileID: 0}
-    - target: {fileID: 6191997300893223250, guid: b471d53cf31544a48847809a143e0213,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 7.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 6191997300893223250, guid: b471d53cf31544a48847809a143e0213,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 5.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b471d53cf31544a48847809a143e0213, type: 3}
@@ -555,7 +540,7 @@ PrefabInstance:
       objectReference: {fileID: 1742603335}
     - target: {fileID: 715554849, guid: e1a159c6ba2d7d6439f9f54bf9d88bd1, type: 3}
       propertyPath: yPush
-      value: 10
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6709816064625671498, guid: e1a159c6ba2d7d6439f9f54bf9d88bd1,
         type: 3}

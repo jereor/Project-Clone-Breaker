@@ -153,6 +153,6 @@ MonoBehaviour:
   minX: 0.9
   maxX: 5.9
   xPush: 0
-  yPush: 10
+  yPush: 5
   ball: {fileID: 0}
   isNotTouching: 0
