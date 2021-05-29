@@ -11,6 +11,9 @@ public class Ball : MonoBehaviour
     Vector2 paddleToBallVector;
     public bool ballLocked = true;
 
+    // Cached references
+    ScreenShakeController shakeController;
+
     // Cached component references
     AudioSource audioSource;
     AudioSource hitSound;
@@ -27,14 +30,15 @@ public class Ball : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log("Ball velocity: " + rb.velocity.x + ", " + rb.velocity.y);
+
         if (ballLocked)
-        {
             LockBallToPaddle();
-        }
     }
 
     private void InitializeCachedReferences()
     {
+        shakeController = FindObjectOfType<ScreenShakeController>();
         audioSource = GetComponent<AudioSource>();
         hitSound = transform.GetChild(0).GetComponent<AudioSource>();
         cloneSound = transform.GetChild(1).GetComponent<AudioSource>();
@@ -49,15 +53,19 @@ public class Ball : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        float x = Random.Range(0f, randomFactor);
-        float y = Random.Range(0f, randomFactor);
-        Vector2 velocityTweak = new Vector2(x, y);
+        shakeController.startShake();
 
         if (!ballLocked && collision.gameObject.tag != "Breakable")
         {
             AudioClip clip = ballSounds[Random.Range(0, ballSounds.Length)];
             audioSource.PlayOneShot(clip);
-            rb.velocity += velocityTweak;
+
+            if (rb.velocity.y <= 1 && rb.velocity.y >= -1)
+            {
+                float y = Random.Range(0f, randomFactor);
+                Vector2 velocityTweak = new Vector2(0, -y);
+                rb.velocity += velocityTweak;
+            }
         }
     }
 }
