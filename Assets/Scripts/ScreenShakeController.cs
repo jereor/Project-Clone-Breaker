@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class ScreenShakeController : MonoBehaviour
 {
+    public static ScreenShakeController instance;
+
     // Configuration parameters
     [SerializeField] float shakeTime = 0.1f;
     [SerializeField] float initialShakePower = 0.1f;
@@ -18,6 +20,7 @@ public class ScreenShakeController : MonoBehaviour
 
     private void Start()
     {
+        instance = this;
         targetPos = transform.position;
     }
 
@@ -41,11 +44,21 @@ public class ScreenShakeController : MonoBehaviour
         }
     }
 
+    // Normal shake
     public void startShake()
     {
         shakeTimeRemaining = shakeTime;
         shakePower = initialShakePower;
 
         shakeFadeTime = initialShakePower / shakeTime;
+    }
+
+    // Modifiable shake
+    public void startShake(float length, float power)
+    {
+        shakeTimeRemaining = length;
+        shakePower = power;
+
+        shakeFadeTime = power / length;
     }
 }

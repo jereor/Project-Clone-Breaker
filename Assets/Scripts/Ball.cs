@@ -11,9 +11,6 @@ public class Ball : MonoBehaviour
     Vector2 paddleToBallVector;
     public bool ballLocked = true;
 
-    // Cached references
-    ScreenShakeController shakeController;
-
     // Cached component references
     AudioSource audioSource;
     AudioSource hitSound;
@@ -30,15 +27,12 @@ public class Ball : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("Ball velocity: " + rb.velocity.x + ", " + rb.velocity.y);
-
         if (ballLocked)
             LockBallToPaddle();
     }
 
     private void InitializeCachedReferences()
     {
-        shakeController = FindObjectOfType<ScreenShakeController>();
         audioSource = GetComponent<AudioSource>();
         hitSound = transform.GetChild(0).GetComponent<AudioSource>();
         cloneSound = transform.GetChild(1).GetComponent<AudioSource>();
@@ -53,7 +47,8 @@ public class Ball : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        shakeController.startShake();
+        if (collision.gameObject.tag == "Untagged" || collision.gameObject.tag == "Unbreakable")
+            ScreenShakeController.instance.startShake();
 
         if (!ballLocked && collision.gameObject.tag != "Breakable")
         {
