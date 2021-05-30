@@ -45,7 +45,7 @@ public class ScreenShakeController : MonoBehaviour
     }
 
     // Normal shake
-    public void startShake()
+    public void StartShake()
     {
         shakeTimeRemaining = shakeTime;
         shakePower = initialShakePower;
@@ -54,7 +54,7 @@ public class ScreenShakeController : MonoBehaviour
     }
 
     // Modifiable shake
-    public void startShake(float length, float power)
+    public void StartShake(float length, float power)
     {
         shakeTimeRemaining = length;
         shakePower = power;

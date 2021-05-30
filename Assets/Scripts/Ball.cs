@@ -47,10 +47,10 @@ public class Ball : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Untagged" || collision.gameObject.tag == "Unbreakable")
-            ScreenShakeController.instance.startShake();
+        if (collision.gameObject.CompareTag("Untagged") || collision.gameObject.CompareTag("Unbreakable"))
+            ScreenShakeController.instance.StartShake();
 
-        if (!ballLocked && collision.gameObject.tag != "Breakable")
+        if (!ballLocked && !collision.gameObject.CompareTag("Breakable"))
         {
             AudioClip clip = ballSounds[Random.Range(0, ballSounds.Length)];
             audioSource.PlayOneShot(clip);

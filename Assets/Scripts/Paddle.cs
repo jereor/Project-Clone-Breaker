@@ -21,9 +21,12 @@ public class Paddle : MonoBehaviour
             Vector3 touchPos = Camera.main.ScreenToWorldPoint(touch.position); // Convert the touchPos into world units 
             touchPos.z = 0f; // Reset the Z
 
-            Vector2 paddlePos = new Vector2(transform.position.x, transform.position.y); // Store the current paddle position
-            paddlePos.x = Mathf.Clamp(touchPos.x, minX, maxX); // Make sure the paddle is clamped to the level borders
-            transform.position = paddlePos; // Update paddle position with the new Vector2
+            // Store the current paddle position
+            // and make sure the paddle is clamped to the level borders
+            Vector2 paddlePos = new Vector2(Mathf.Clamp(touchPos.x, minX, maxX), transform.position.y);
+
+            // Update paddle position with the new Vector2
+            transform.position = paddlePos;
 
             // Check if ball is locked to the paddle and wait for touch release to launch the ball
             if (ball.GetComponent<Ball>().ballLocked == true && Input.touches[0].phase == TouchPhase.Ended)
