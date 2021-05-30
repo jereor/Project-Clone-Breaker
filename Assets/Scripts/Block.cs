@@ -36,12 +36,12 @@ public class Block : MonoBehaviour
 
     private void CountToBlocks()
     {
-        if (tag == "Breakable") levelManager.BlockAdded();
+        if (CompareTag("Breakable")) levelManager.BlockAdded();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (tag == "Breakable") HandleHit();
+        if (CompareTag("Breakable")) HandleHit();
         else AudioSource.PlayClipAtPoint(clinkClip, Camera.main.transform.position);
     }
 
@@ -80,6 +80,6 @@ public class Block : MonoBehaviour
 
     private void TriggerSparklesVFX()
     {
-        GameObject sparkles = Instantiate(blockSparklesVFX, transform.position, transform.rotation);
+        Instantiate(blockSparklesVFX, transform.position, transform.rotation);
     }
 }
