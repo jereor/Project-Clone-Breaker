@@ -156,8 +156,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4d0cbc961f1265459cb3135315a6d45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minX: 0.9
-  maxX: 5.9
+  minX: -5.2
+  maxX: 5.2
   xPush: 0
   yPush: 5
   ball: {fileID: 0}
