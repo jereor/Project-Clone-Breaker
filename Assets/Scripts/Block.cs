@@ -57,7 +57,7 @@ public class Block : MonoBehaviour
 
     private void DamageBlock()
     {
-        ScreenShakeController.instance.startShake(.1f, .1f);
+        ScreenShakeController.instance.StartShake(.1f, .1f);
 
         AudioSource.PlayClipAtPoint(hitClip, Camera.main.transform.position);
         int spriteIndex = timesHit - 1;
@@ -69,7 +69,7 @@ public class Block : MonoBehaviour
 
     private void DestroyBlock()
     {
-        ScreenShakeController.instance.startShake(.3f, .15f);
+        ScreenShakeController.instance.StartShake(.3f, .15f);
 
         gameStatus.AddToScore();
         AudioSource.PlayClipAtPoint(destroyClip, Camera.main.transform.position);
